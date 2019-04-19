@@ -1,0 +1,24 @@
+登录接口：
+	地址： /login
+	方式： get
+	参数：{
+	  username: '',
+	  password: ''
+	},
+	返回（响应）值
+	{
+		code:1, 
+		data: {
+				username: 'admin',
+				sex: '男',
+				age: 23
+		}
+	}
+
+	{
+		code: 0,
+		data: {},
+		msg: 'error'
+	}
+
+	测试账号是admin密码是123456
