@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+			ajax({
+				url: '/reg',
+				type: 'post',
+				data: {
+					username:'lisi',
+					password: '123456',
+					sex:'1',
+					age: 20,
+					email: '234894320@qq.com',
+					iphone: '23456789'
+				},
+				success: function(data){
+					console.log(data)
+				},
+				error: function(err){
+					console.log(err)
+				}
+			})
+	</script>
+</body>
+</html>

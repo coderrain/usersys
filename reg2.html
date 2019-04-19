@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	姓名：<input type="text" name="" id="username"> <br>
+	密码：<input type="password" name="" id="password"><br>
+	男：<input type="radio" name="sex" value="1">
+	女：<input type="radio" name="sex" value="0"><br>
+	年龄： <select id="age">
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+	</select>	<br>
+	邮箱：<input type="text" name="" id="email"><br>
+	手机号：<input type="text" name="" id="iphone"><br>
+	<button id="regBtn">注册</button>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+		(function(){
+			var username = document.getElementById('username');
+			var password = document.getElementById('password');
+			var email = document.getElementById('email');
+			var iphone = document.getElementById('iphone');
+			var username = document.getElementById('username');
+			var regBtn = document.getElementById('regBtn');
+
+			regBtn.onclick = function(){
+				if(!/^.{2,10}$/.test(username.value)){
+					alert('用户名不符合要求');
+					return false;
+				}
+				if(!/^.{6,11}$/.test(password.value)){
+					alert('密码不符合要求');
+					return false;
+				}
+				if(!/^(1[89])|([2-4][0-9])|(50)$/.test(age.value)){
+					alert('年龄超出范围');
+					return false;
+				}
+				if(!/^\w+\@\w+.\w+$/.test(email.value)){
+					alert('邮箱不符合要求');
+					return false;
+				}
+				if(!/^\d{11}$/.test(iphone.value)){
+					alert('手机号不符合要求');
+					return false;
+				}
+				ajax({
+					url: '/reg',
+					type: 'post',
+					data: {
+						username: username.value,
+						password: password.value,
+						sex:'1',
+						age: age.value,
+						email: email.value,
+						iphone: iphone.value
+					},
+					success: function(data){
+						console.log(data)
+					},
+					error: function(err){
+						console.log(err)
+					}
+				})
+			}
+
+		})()
+
+
+			
+	</script>
+</body>
+</html>

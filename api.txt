@@ -22,3 +22,29 @@
 	}
 
 	测试账号是admin密码是123456
+
+
+注册接口
+
+	url: /reg
+	type: post
+	字段(传递的参数)：
+		用户名 username
+		密码 password
+		邮箱 email
+		手机号 iphone
+		性别 sex
+		年龄 age
+	返回的数据
+		{
+			code:1,
+			data: {}
+		}
+
+		{
+			code:0,
+			data:{},
+			msg: 'error'
+		}
+
+
