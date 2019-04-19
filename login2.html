@@ -53,7 +53,7 @@
 					if(/^.{6,11}$/.test(password.value)){
 						ajax({
 							url: '/login',
-							type: 'get',
+							type: 'post',
 							sync: false,
 							//data: '?username='+username.value + '&password='+ password.value,
 							data: {

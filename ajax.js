@@ -25,12 +25,13 @@ var ajax = (function(){
 		for(var key in data){
 			dataStr += key + '=' + data[key] + '&';
 		}
-
+		dataStr = dataStr.slice(0,dataStr.length-1);
 		var xhr = new XMLHttpRequest();
 		if(type=='get'){
 			xhr.open(type, url + dataStr, sync);
 		}else{
 			xhr.open(type, url, sync);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
 		}
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState == 4 && xhr.status == 200){
@@ -43,6 +44,7 @@ var ajax = (function(){
 		if(type=='get'){
 			xhr.send(null);
 		}else{
+			//console.log(dataStr.slice(1,dataStr.length-1))
 			xhr.send(dataStr.slice(1));
 		}
 	}
